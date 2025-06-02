@@ -1,0 +1,14 @@
+I am designing a social platform that is expected to have millions of users. I need your help choosing the most suitable type of database.
+
+Please apply Chain-of-Thought reasoning to analyze and select the best option, step by step, based on these project requirements:
+
+- The platform will store user profiles, posts, and connections (like followers/friends).
+- The workload is expected to be 80% reads and 20% writes.
+- High data read speed is critical.
+- The system must be scalable to support user growth.
+
+Your reasoning should:
+
+- Consider and compare different types of databases (e.g., relational, document, graph, key-value, wide-column).
+- Justify why one type is most suitable based on the features required.
+- Conclude with a clear recommendation for the most appropriate type of database and optionally suggest specific technologies.
