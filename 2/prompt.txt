@@ -1,0 +1,15 @@
+I have an informal bug note and I need your help turning it into a proper bug report.
+Please apply Chain-of-Thought (CoT) reasoning to:
+
+1. Analyze the informal bug note to identify key information.
+2. Use logical steps to infer missing but useful context (e.g., environment, severity).
+3. Generate a clear, well-structured bug ticket in the following format:
+- Title
+- Description
+- Steps to Reproduce
+- Expected vs Actual Behavior
+- Environment (if known)
+- Severity or Impact
+
+Here's the informal bug note:
+"Logout button doesn’t work on Safari. It just doesn’t respond."
