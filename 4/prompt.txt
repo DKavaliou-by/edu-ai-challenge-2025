@@ -1,0 +1,19 @@
+ I am providing you with a raw text input. Please apply **Chain-of-Thought (CoT) reasoning** to perform the following tasks step by step:
+
+ 1. **Summarize the text concisely**, capturing its main points. Apply either extractive or abstractive summarization as appropriate.
+ 2. **Analyze the sentiment** of the text logically and classify it as **positive**, **neutral**, or **negative**.
+ 3. Provide a **sentiment score** where:
+
+    * `+1` means very positive
+    * `0` means neutral
+    * `-1` means very negative
+ 4. Return all results in a **structured JSON format** including:
+
+    * `"summary"` (string)
+    * `"sentiment"` (string: positive, neutral, or negative)
+    * `"score"` (integer: -1, 0, or 1)
+    * `"metadata"` (object with any relevant notes, e.g., tone, topic, etc.)
+
+ Here is the raw text input:
+ *"Remote work, also known as telecommuting, has become increasingly popular..."*
+ *(insert full text from file task\_3\_input.docx)*

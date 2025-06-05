@@ -1,19 +1,39 @@
- I am providing you with a raw text input. Please apply **Chain-of-Thought (CoT) reasoning** to perform the following tasks step by step:
+ I have a JavaScript function implementation called `processUserData.js`, and I need a deep, multi-perspective review of this code.
 
- 1. **Summarize the text concisely**, capturing its main points. Apply either extractive or abstractive summarization as appropriate.
- 2. **Analyze the sentiment** of the text logically and classify it as **positive**, **neutral**, or **negative**.
- 3. Provide a **sentiment score** where:
+ Please apply **role prompting** and analyze the following code from **three expert perspectives**, one at a time:
 
-    * `+1` means very positive
-    * `0` means neutral
-    * `-1` means very negative
- 4. Return all results in a **structured JSON format** including:
+ 1. **Experienced JavaScript Developer** – Focus on code clarity, best practices, modularity, and maintainability.
+ 2. **Security Engineer** – Identify potential vulnerabilities, bad practices, or missing validation/sanitization.
+ 3. **Performance Specialist** – Evaluate algorithmic efficiency, memory usage, and any possible optimizations.
 
-    * `"summary"` (string)
-    * `"sentiment"` (string: positive, neutral, or negative)
-    * `"score"` (integer: -1, 0, or 1)
-    * `"metadata"` (object with any relevant notes, e.g., tone, topic, etc.)
+ For each expert, provide:
 
- Here is the raw text input:
- *"Remote work, also known as telecommuting, has become increasingly popular..."*
- *(insert full text from file task\_3\_input.docx)*
+ * A short analysis summary
+ * Actionable, specific recommendations to improve the code
+ * Comments on what is currently good (if any)
+
+ Here is the code:
+
+ ```javascript
+ function processUserData(data: any) {
+   var users = [];
+
+   for (var i = 0; i < data.length; i++) {
+     var user = {
+       id: data[i].id,
+       name: data[i].name,
+       email: data[i].email,
+       active: data[i].status === 'active' ? true : false
+     };
+     users.push(user);
+   }
+   console.log("Processed " + users.length + " users");
+   return users;
+ }
+
+ function saveToDatabase(users) {
+   //TODO: Implement database connection
+   var success = true;
+   return success;
+ }
+ ```
