@@ -1,0 +1,20 @@
+```json
+{
+  "sentiment": "Negative",
+  "isRelevant": true,
+  "mainSubject": "Sensor reliability and wireless connectivity issues",
+  "positives": [],
+  "painPoints": [
+    "Sensor intermittently stops tracking even at high polling rate (8000Hz)",
+    "Issue persists when using wired mode",
+    "Initial unit had a non-functional dongle"
+  ],
+  "improvementSuggestions": [
+    "Improve sensor consistency and tracking reliability",
+    "Ensure wireless dongles are tested before shipping",
+    "Add diagnostics or user tools for detecting tracking issues"
+  ],
+  "featuresMentioned": ["Sensor", "Polling rate", "Wired mode", "Wireless dongle"],
+  "userExpertise": "Experienced"
+}
+```
