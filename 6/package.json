@@ -1,0 +1,18 @@
+{
+  "name": "enigma-machine",
+  "version": "1.0.0",
+  "description": "A JavaScript implementation of the Enigma Machine cipher",
+  "main": "enigma.js",
+  "scripts": {
+    "test": "node test.js",
+    "test:coverage": "c8 node test.js | tee test_report.txt",
+    "test:coverage-html": "c8 --reporter=html node test.js | tee test_report.txt",
+    "test:coverage-file": "c8 node test.js > test_report.txt 2>&1"
+  },
+  "devDependencies": {
+    "c8": "^8.0.1"
+  },
+  "keywords": ["enigma", "cipher", "cryptography", "encryption"],
+  "author": "",
+  "license": "MIT"
+} 
