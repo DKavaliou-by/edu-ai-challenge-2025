@@ -1,0 +1,35 @@
+✅ Rotor Basic Stepping
+✅ Rotor Notch Detection
+✅ Single Rotor Stepping
+✅ Double Stepping Logic
+✅ Plugboard Swap Function
+✅ No Plugboard Configuration
+✅ Ring Settings Effect
+✅ Known Test Vector - Basic
+✅ Non-alphabetic Characters Pass Through
+✅ Rotor Position Wraparound
+✅ Full Encryption Cycle Symmetry
+✅ Complex Double Stepping Scenario
+
+🧪 Running Enigma Machine Tests...
+
+
+✅ All tests passed! The Enigma machine is working correctly.
+
+Test Summary:
+- ✅ Basic rotor stepping
+- ✅ Rotor notch detection
+- ✅ Single rotor advancement
+- ✅ Double stepping logic
+- ✅ Plugboard functionality
+- ✅ Ring settings effect
+- ✅ Encryption symmetry
+- ✅ Non-alphabetic character handling
+- ✅ Position wraparound
+- ✅ Complex stepping scenarios
+-----------|---------|----------|---------|---------|-------------------
+File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------|---------|----------|---------|---------|-------------------
+All files  |   74.41 |    96.55 |   91.66 |   74.41 |                   
+ enigma.js |   74.41 |    96.55 |   91.66 |   74.41 | 93-123,126-127    
+-----------|---------|----------|---------|---------|-------------------

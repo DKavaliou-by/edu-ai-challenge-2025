@@ -1,0 +1,39 @@
+# Development Roadmap
+
+## Step 1: Basic Node.js Console Application ✅
+- Create a basic Node.js console application
+- Implement user input handling using readline-sync
+- Accept one-line service name/description input
+- Basic error handling for input validation 
+
+## Step 2: OpenAI Integration ✅
+- Add OpenAI API integration
+- Implement dotenv for API key management
+- Create function to send prompts to GPT-4.1-mini
+- Handle API responses and errors
+
+## Step 3: Documentation ✅
+- Create README.md with setup instructions
+- Add usage examples
+- Document dependencies and features
+
+## Step 4: Service Analysis Report Generation ✅
+- Implement service name/description input handling
+- Create structured prompt template for AI analysis
+- Generate markdown-formatted report with sections:
+  - Brief History
+  - Target Audience
+  - Core Features
+  - Unique Selling Points
+  - Business Model
+  - Tech Stack Insights
+  - Perceived Strengths
+  - Perceived Weaknesses
+- Add file output option for reports
+- Implement error handling for invalid inputs
+
+## Step 5: Testing Mode
+- Add testing mode when API key is not provided
+- Display generated prompt instead of making API call
+- Add clear indication of test mode in output
+- Update documentation for testing mode 

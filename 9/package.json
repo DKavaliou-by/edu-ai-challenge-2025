@@ -1,0 +1,14 @@
+{
+  "name": "service-input-app",
+  "version": "1.0.0",
+  "description": "Console application for service input",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10",
+    "openai": "^4.28.0",
+    "dotenv": "^16.4.5"
+  }
+} 
