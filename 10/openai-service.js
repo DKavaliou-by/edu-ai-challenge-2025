@@ -38,10 +38,14 @@ async function getAIResponse(prompt) {
     }
 }
 
-async function getProductFilters(userInput, functionDefinition) {
-    if (isTestMode) {
+async function getProductFilters(userInput, functionDefinition, forceTestMode = false) {
+    if (isTestMode || forceTestMode) {
         console.log('\n=== TEST MODE ===');
-        console.log('No OpenAI API key provided. Showing function call that would be made:');
+        if (forceTestMode) {
+            console.log('Test mode enabled via --test flag. Showing function call that would be made:');
+        } else {
+            console.log('No OpenAI API key provided. Showing function call that would be made:');
+        }
         console.log('\nUser Input:', userInput);
         console.log('\nFunction Definition:', JSON.stringify(functionDefinition, null, 2));
         
@@ -49,20 +53,93 @@ async function getProductFilters(userInput, functionDefinition) {
         const testFilters = {};
         const inputLower = userInput.toLowerCase();
         
-        // Category detection
-        if (inputLower.includes('headphones') || inputLower.includes('laptop') || inputLower.includes('smartphone') || 
-            inputLower.includes('speaker') || inputLower.includes('monitor') || inputLower.includes('mouse') || 
-            inputLower.includes('hard drive') || inputLower.includes('charger')) {
+        // Product name detection (most specific)
+        if (inputLower.includes('smartphone') || inputLower.includes('phone')) {
+            testFilters.product_name = 'smartphone';
             testFilters.category = 'Electronics';
-        } else if (inputLower.includes('yoga') || inputLower.includes('treadmill') || inputLower.includes('dumbbell') || 
-                   inputLower.includes('bike') || inputLower.includes('bands') || inputLower.includes('kettlebell') || 
-                   inputLower.includes('roller') || inputLower.includes('pull-up') || inputLower.includes('jump rope') || 
-                   inputLower.includes('ab roller')) {
+        } else if (inputLower.includes('headphones') || inputLower.includes('headphone')) {
+            testFilters.product_name = 'headphones';
+            testFilters.category = 'Electronics';
+        } else if (inputLower.includes('laptop')) {
+            testFilters.product_name = 'laptop';
+            testFilters.category = 'Electronics';
+        } else if (inputLower.includes('smart watch') || inputLower.includes('smartwatch')) {
+            testFilters.product_name = 'smart watch';
+            testFilters.category = 'Electronics';
+        } else if (inputLower.includes('speaker')) {
+            testFilters.product_name = 'speaker';
+            testFilters.category = 'Electronics';
+        } else if (inputLower.includes('monitor')) {
+            testFilters.product_name = 'monitor';
+            testFilters.category = 'Electronics';
+        } else if (inputLower.includes('mouse')) {
+            testFilters.product_name = 'mouse';
+            testFilters.category = 'Electronics';
+        } else if (inputLower.includes('hard drive')) {
+            testFilters.product_name = 'hard drive';
+            testFilters.category = 'Electronics';
+        } else if (inputLower.includes('charger')) {
+            testFilters.product_name = 'charger';
+            testFilters.category = 'Electronics';
+        } else if (inputLower.includes('yoga mat')) {
+            testFilters.product_name = 'yoga mat';
             testFilters.category = 'Fitness';
-        } else if (inputLower.includes('blender') || inputLower.includes('fryer') || inputLower.includes('microwave') || 
-                   inputLower.includes('coffee') || inputLower.includes('toaster') || inputLower.includes('kettle') || 
-                   inputLower.includes('rice cooker') || inputLower.includes('pressure cooker') || 
-                   inputLower.includes('dishwasher') || inputLower.includes('refrigerator')) {
+        } else if (inputLower.includes('treadmill')) {
+            testFilters.product_name = 'treadmill';
+            testFilters.category = 'Fitness';
+        } else if (inputLower.includes('dumbbell')) {
+            testFilters.product_name = 'dumbbell';
+            testFilters.category = 'Fitness';
+        } else if (inputLower.includes('bike')) {
+            testFilters.product_name = 'bike';
+            testFilters.category = 'Fitness';
+        } else if (inputLower.includes('bands')) {
+            testFilters.product_name = 'bands';
+            testFilters.category = 'Fitness';
+        } else if (inputLower.includes('kettlebell')) {
+            testFilters.product_name = 'kettlebell';
+            testFilters.category = 'Fitness';
+        } else if (inputLower.includes('roller')) {
+            testFilters.product_name = 'roller';
+            testFilters.category = 'Fitness';
+        } else if (inputLower.includes('pull-up')) {
+            testFilters.product_name = 'pull-up';
+            testFilters.category = 'Fitness';
+        } else if (inputLower.includes('jump rope')) {
+            testFilters.product_name = 'jump rope';
+            testFilters.category = 'Fitness';
+        } else if (inputLower.includes('ab roller')) {
+            testFilters.product_name = 'ab roller';
+            testFilters.category = 'Fitness';
+        } else if (inputLower.includes('blender')) {
+            testFilters.product_name = 'blender';
+            testFilters.category = 'Kitchen';
+        } else if (inputLower.includes('fryer')) {
+            testFilters.product_name = 'fryer';
+            testFilters.category = 'Kitchen';
+        } else if (inputLower.includes('microwave')) {
+            testFilters.product_name = 'microwave';
+            testFilters.category = 'Kitchen';
+        } else if (inputLower.includes('coffee')) {
+            testFilters.product_name = 'coffee';
+            testFilters.category = 'Kitchen';
+        } else if (inputLower.includes('toaster')) {
+            testFilters.product_name = 'toaster';
+            testFilters.category = 'Kitchen';
+        } else if (inputLower.includes('kettle')) {
+            testFilters.product_name = 'kettle';
+            testFilters.category = 'Kitchen';
+        } else if (inputLower.includes('rice cooker')) {
+            testFilters.product_name = 'rice cooker';
+            testFilters.category = 'Kitchen';
+        } else if (inputLower.includes('pressure cooker')) {
+            testFilters.product_name = 'pressure cooker';
+            testFilters.category = 'Kitchen';
+        } else if (inputLower.includes('dishwasher')) {
+            testFilters.product_name = 'dishwasher';
+            testFilters.category = 'Kitchen';
+        } else if (inputLower.includes('refrigerator')) {
+            testFilters.product_name = 'refrigerator';
             testFilters.category = 'Kitchen';
         } else if (inputLower.includes('book') || inputLower.includes('novel') || inputLower.includes('guide') || 
                    inputLower.includes('cookbook') || inputLower.includes('history') || inputLower.includes('biography') || 
@@ -106,7 +183,7 @@ async function getProductFilters(userInput, functionDefinition) {
             messages: [
                 {
                     role: "user",
-                    content: `Extract product filtering criteria from this user request: "${userInput}"`
+                    content: `Extract product filtering criteria from this user request: "${userInput}". Be specific and extract product names when mentioned.`
                 }
             ],
             functions: [functionDefinition],

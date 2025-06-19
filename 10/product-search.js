@@ -7,6 +7,10 @@ const FILTER_FUNCTION = {
     parameters: {
         type: "object",
         properties: {
+            product_name: { 
+                type: "string",
+                description: "Specific product name or type to search for (e.g., 'smartphone', 'headphones', 'laptop')"
+            },
             category: { 
                 type: "string",
                 description: "Product category (Electronics, Fitness, Kitchen, Books, Clothing)"
@@ -39,6 +43,15 @@ async function loadProducts() {
 
 function filterProducts(products, filters) {
     return products.filter(product => {
+        // Product name filter (most specific)
+        if (filters.product_name) {
+            const productNameLower = product.name.toLowerCase();
+            const filterNameLower = filters.product_name.toLowerCase();
+            if (!productNameLower.includes(filterNameLower)) {
+                return false;
+            }
+        }
+        
         // Category filter
         if (filters.category && product.category !== filters.category) {
             return false;
@@ -74,10 +87,11 @@ function formatResults(products) {
     }).join('\n');
 }
 
-async function searchProducts(userInput) {
+async function searchProducts(userInput, forceTestMode = false) {
     try {
         // Get filters from OpenAI function calling
-        const filters = await getProductFilters(userInput, FILTER_FUNCTION);
+        const filters = await getProductFilters(userInput, FILTER_FUNCTION, forceTestMode);
+        console.log('filters', filters);
         
         // Load and filter products
         const allProducts = await loadProducts();

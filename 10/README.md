@@ -54,6 +54,25 @@ Search Results:
 5. Portable Charger – $29.99, Rating: 4.2, In Stock
 ```
 
+### Test Mode Options
+
+The application supports two ways to run in test mode:
+
+#### Option 1: No API Key (Automatic Test Mode)
+If no OpenAI API key is provided in the `.env` file, the application automatically runs in test mode.
+
+#### Option 2: Force Test Mode with --test Flag
+You can force test mode even with an API key by using the `--test` flag:
+
+```bash
+node index.js --test
+```
+
+This is useful for:
+- Testing the application without using API credits
+- Demonstrating the function calling process
+- Development and debugging
+
 ### Example Search Queries
 
 The application accepts natural language queries like:
@@ -65,16 +84,24 @@ The application accepts natural language queries like:
 - "Clothing with rating above 4.0"
 
 ### Test Mode
-If no OpenAI API key is provided in the `.env` file, the application will run in test mode:
-- Shows the function call that would be made to OpenAI
-- Displays the extracted filtering parameters
-- Uses mock filtering logic for demonstration
+When running in test mode (either automatically or with --test flag), the application will:
+- Show the function call that would be made to OpenAI
+- Display the extracted filtering parameters
+- Use mock filtering logic for demonstration
 - Useful for testing and development without using API credits
 
 Example test mode output:
 ```
+=== RUNNING IN TEST MODE ===
+Test mode enabled via --test flag. The app will show the generated function call instead of making API calls.
+
+Enter your product search criteria (e.g., "I want headphones under $100 that are in stock"):
+> I want headphones under $100 that are in stock
+
+Searching for products...
+
 === TEST MODE ===
-No OpenAI API key provided. Showing function call that would be made:
+Test mode enabled via --test flag. Showing function call that would be made:
 
 User Input: I want headphones under $100 that are in stock
 
@@ -99,6 +126,13 @@ Applied Filters: {
   "in_stock": true
 }
 === END TEST MODE ===
+
+Search Results:
+1. Wireless Headphones – $99.99, Rating: 4.5, In Stock
+2. Bluetooth Speaker – $49.99, Rating: 4.4, In Stock
+3. Gaming Mouse – $59.99, Rating: 4.3, In Stock
+4. External Hard Drive – $89.99, Rating: 4.4, In Stock
+5. Portable Charger – $29.99, Rating: 4.2, In Stock
 ```
 
 ## How It Works
@@ -149,7 +183,7 @@ Each product has:
 - OpenAI GPT-4.1-mini integration with function calling
 - Secure API key management with dotenv
 - Comprehensive product filtering (category, price, rating, stock)
-- Test mode for development and testing
+- Test mode for development and testing (automatic or with --test flag)
 - Error handling for API calls and file operations
 - Formatted output with product details
 
